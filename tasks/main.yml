@@ -1,0 +1,14 @@
+---
+- name: Add Ansible repo
+  apt_repository:
+    repo: ppa:ansible/ansible
+    filename: ansible
+    update_cache: true
+
+- name: Install required packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - ansible
+    - python-yaml
+    - python-jmespath
